@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import com.google.gson.*;
 
 public class Main {
 
@@ -76,7 +77,7 @@ public class Main {
 
             String responseJson = input.readLine();
 
-            System.out.println("Received:");
+            System.out.print("Received: ");
             System.out.println(responseJson);
 
         } catch (Exception e) {

@@ -2,6 +2,7 @@ package server;
 
 import com.google.gson.*;
 
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        // Required for Hyperskill test #1
+
         if (args.length > 1 && args[0].equals("-t") && args[1].equals("exit")) {
             System.out.println("Server started!");
             return;
@@ -40,12 +41,12 @@ public class Main {
 
             Socket socket = server.accept();
 
-            // 🔥 MULTITHREADING STARTS HERE
+            //  MULTITHREADING STARTS HERE--
             new Thread(() -> handleClient(socket, server)).start();
         }
     }
 
-    // ================= HANDLE CLIENT =================
+    // ---- HANDLE CLIENT ----
 
     private static void handleClient(Socket socket, ServerSocket server) {
 
@@ -80,7 +81,7 @@ public class Main {
         }
     }
 
-    // ================= REQUEST HANDLER =================
+    // ---- REQUEST HANDLER ----
 
     private static synchronized JsonObject handleRequest(JsonObject request) throws IOException {
 
@@ -125,7 +126,7 @@ public class Main {
         return response;
     }
 
-    // ================= GET =================
+    //----- GET ------
 
     private static JsonElement getValue(JsonElement keyElement) {
 
@@ -149,7 +150,7 @@ public class Main {
         return current;
     }
 
-    // ================= SET =================
+    // ----SET ----
 
     private static void setValue(JsonElement keyElement, JsonElement value) {
 
@@ -176,7 +177,7 @@ public class Main {
         current.add(lastKey, value);
     }
 
-    // ================= DELETE =================
+    // ----- DELETE ----
 
     private static boolean deleteValue(JsonElement keyElement) {
 
@@ -202,7 +203,7 @@ public class Main {
         return current.remove(lastKey) != null;
     }
 
-    // ================= FILE =================
+    // ------FILE ----
 
     private static JsonObject readDatabase() throws IOException {
 

@@ -29,6 +29,8 @@
       <scope>test</scope>
     </dependency>
     <!-- Gson -->
+
+
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
@@ -54,7 +56,9 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>3.6.3</version>
-
+        <configuration>
+          <mainClass>server.Main</mainClass>
+        </configuration>
       </plugin>
 
       <!-- Checkstyle -->
